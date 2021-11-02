@@ -3,6 +3,6 @@
   (:require scheduler))
 
 (defn run [opts]
-  (scheduler/runSchedule (first schedules/currentSchedules) 
+  (scheduler/runSchedule (second schedules/currentSchedules) 
               ;;  #(prn currentSchedules)
                ))

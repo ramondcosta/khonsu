@@ -1,6 +1,5 @@
 (ns scheduler
-  ;;(:require [time-core :as t])
-  )
+  (:require [time-core :as tcore]))
 
 (import 'java.util.concurrent.Executors)
 (import 'java.util.concurrent.TimeUnit)
@@ -10,4 +9,4 @@
         {sleep :sleep} schedule
         {name :name} schedule]
     (.scheduleAtFixedRate (Executors/newScheduledThreadPool 1)
-                          (or foo #(println name "Executed")) time sleep TimeUnit/SECONDS)))
+                          (or foo #(println name "Executed")) (tcore/time-left time) sleep TimeUnit/SECONDS)))
